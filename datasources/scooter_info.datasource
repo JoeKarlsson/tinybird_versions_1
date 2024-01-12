@@ -1,0 +1,13 @@
+
+SCHEMA >
+    `scooter_id` String,
+    `scooter_make` String,
+    `scooter_model` String,
+    `purchased_date` Date,
+    `comissioned_date` Date,
+    `last_serviced_date` Date,
+    `last_serviced_engineer_id` Int32
+
+ENGINE "MergeTree"
+ENGINE_PARTITION_KEY "toYear(purchased_date)"
+ENGINE_SORTING_KEY "purchased_date, scooter_make, scooter_model, last_serviced_engineer_id"
